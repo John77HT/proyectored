@@ -1,0 +1,41 @@
+body {
+    background: linear-gradient(135deg, #4ca1af, #c4e0e5);
+    font-family: Arial, sans-serif;
+}
+
+p {
+    text-align: center;
+    font-size: 24px; /* Aumentar el tamaño de la fuente */
+    color: #ffffff; /* Cambiar el color del texto a blanco para mejor contraste */
+    font-weight: bold; /* Hacer que el texto sea negrita */
+    background-color: #3b3f58; /* Fondo del párrafo */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    margin: 20px 0; /* Margen arriba y abajo */
+}
+
+table {
+    width: 80%;
+    margin: 50px auto;
+    border-collapse: collapse;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+    background-color: #3b3f58;
+    color: white;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}

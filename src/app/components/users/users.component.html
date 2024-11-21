@@ -1,0 +1,32 @@
+<p>Usuarios</p>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID Usuario</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>ID Ciudad</th>
+            <th>Dirección</th>
+            <th>ID Tipo</th>
+            <th>Email</th>
+            <th>Teléfono</th>
+            <th>Género</th>
+            <th>Contraseña</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let usuario of usuarios">  <!-- Bucle para recorrer y mostrar cada usuario -->
+            <td>{{ usuario.id_usuario }}</td>
+            <td>{{ usuario.nombre }}</td>
+            <td>{{ usuario.apellido }}</td>
+            <td>{{ usuario.id_ciudad }}</td>
+            <td>{{ usuario.direccion }}</td>
+            <td>{{ usuario.id_tipo }}</td>
+            <td>{{ usuario.email }}</td>
+            <td>{{ usuario.telefono }}</td>
+            <td>{{ usuario.genero }}</td>
+            <td>{{ usuario.contra }}</td>
+        </tr>
+    </tbody>
+</table>
+

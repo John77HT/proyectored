@@ -1,0 +1,24 @@
+<h2>Crear Nuevo Registro</h2>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<form (ngSubmit)="crearCiudad()" #ciudadForm="ngForm">
+    <div class="form-group">
+        <label>ID Ciudad:</label>
+        <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input [(ngModel)]="nuevaCiudad.id_ciudad" name="id_ciudad" placeholder="ID Ciudad" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Nombre:</label>
+        <div class="input-group">
+            <i class="fas fa-user-circle"></i>
+            <input [(ngModel)]="nuevaCiudad.nombre" name="nombre" placeholder="Nombre" required>
+        </div>
+    </div>
+
+
+
+
+    <button type="submit">Crear Ciudad</button>
+</form>

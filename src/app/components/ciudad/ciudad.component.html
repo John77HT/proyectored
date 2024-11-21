@@ -1,0 +1,30 @@
+<h2>Ciudades</h2>
+<button class="btn-nuevo-registro" (click)="irANuevaCiudad()">
+    <i class="fas fa-city"></i> Crear nueva Ciudad
+</button>
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let ciudad of ciudad">
+                <td>{{ ciudad.id_ciudad }}</td>
+                <td>{{ ciudad.nombre }}</td>
+                <td>
+                    <button (click)="editarCiudad(ciudad.id_ciudad)">
+                        <i class="fas fa-edit"></i> Editar
+                    </button>
+                    <button (click)="eliminarCiudad(ciudad.id_ciudad)">
+                        <i class="fas fa-trash"></i> Eliminar
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
