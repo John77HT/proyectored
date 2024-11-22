@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class CiudadService {
 
-  URL = 'http://localhost:3000/api/ciudad/';
+  //URL = 'http://localhost:3000/api/ciudad/';
+  URL = 'https://back-6s9j.onrender.com'
 
   constructor(private http: HttpClient) { }
 

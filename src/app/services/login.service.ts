@@ -6,7 +6,8 @@ import { Observable, tap } from 'rxjs';
   providedIn: 'root'
 })
 export class LoginService {
-  private URL = 'http://localhost:3000/api/login'; // Cambia esta URL según tu configuración
+  // private URL = 'http://localhost:3000/api/login'; // Cambia esta URL según tu configuración
+  private URL = 'https://back-6s9j.onrender.com'
 
   constructor(private http: HttpClient) { }
 
