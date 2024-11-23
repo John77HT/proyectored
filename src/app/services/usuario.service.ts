@@ -1,40 +1,52 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
-  //
   
-  URL = 'https://back-6s9j.onrender.com'
+  // Datos simulados
+  private usuarios = [
+    { id: '1', nombre: 'Juan', apellido: 'Pérez' },
+    { id: '2', nombre: 'Ana', apellido: 'González' },
+    { id: '3', nombre: 'Luis', apellido: 'Martínez' }
+  ];
 
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
+  // Simula la obtención de todos los usuarios
   fetchUser(): Observable<any[]> {
-    return this.http.get<any[]>(this.URL);
+    return of(this.usuarios); // Devuelve los usuarios simulados
   }
 
+  // Simula la obtención de un usuario por ID
   fetchUserById(id: string): Observable<any> {
-    return this.http.get<any>(`${this.URL}${id}`); // Obtener un solo usuario por ID
+    const usuario = this.usuarios.find(user => user.id === id);
+    return of(usuario); // Devuelve el usuario encontrado
   }
 
+  // Simula el envío de un nuevo usuario
   postUser(user: any): Observable<any> {
-    return this.http.post<any>(this.URL, user); 
+    this.usuarios.push(user); // Agrega el nuevo usuario a la lista
+    return of(user); // Devuelve el usuario agregado
   }
 
+  // Simula la actualización de un usuario
+  updateUser(id_original: string, usuario: any): Observable<any> {
+    const index = this.usuarios.findIndex(user => user.id === id_original);
+    if (index !== -1) {
+      this.usuarios[index] = { ...this.usuarios[index], ...usuario }; // Actualiza el usuario
+    }
+    return of(this.usuarios[index]); // Devuelve el usuario actualizado
+  }
 
-  /*updateUser(id_original: string, usuario: any) {
-    return this.http.put(`${this.URL}${id_original}`, usuario);
-  }*/
-
-  updateUser(id_original: string, usuario: any) {
-    console.log('Datos a enviar para actualización:', usuario);
-    return this.http.put(`${this.URL}${id_original}`, usuario);
-}
-
+  // Simula la eliminación de un usuario
   deleteUser(id_usuario: string): Observable<any> {
-    return this.http.delete<any>(`${this.URL}${id_usuario}`); // Especifica el tipo de retorno
+    const index = this.usuarios.findIndex(user => user.id === id_usuario);
+    if (index !== -1) {
+      this.usuarios.splice(index, 1); // Elimina el usuario
+    }
+    return of({ message: 'Usuario eliminado' }); // Mensaje de éxito
   }
 }

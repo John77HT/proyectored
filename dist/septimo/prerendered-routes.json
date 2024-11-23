@@ -1,13 +1,8 @@
 {
   "routes": [
     "/ciudad",
-    "/contenido",
-    "/editarciudad",
-    "/editarusuario",
-    "/login",
     "/nuevaciudad",
     "/nuevousuario",
-    "/registros",
-    "/usuario"
+    "/registros"
   ]
 }

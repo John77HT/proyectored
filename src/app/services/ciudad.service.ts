@@ -1,40 +1,52 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CiudadService {
 
-  //URL = 'http://localhost:3000/api/ciudad/';
-  URL = 'https://back-6s9j.onrender.com'
+  // Datos simulados
+  private ciudades = [
+    { id: '1', nombre: 'Madrid' },
+    { id: '2', nombre: 'Barcelona' },
+    { id: '3', nombre: 'Sevilla' }
+  ];
 
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
+  // Simula la obtención de todas las ciudades
   fetchCiudad(): Observable<any[]> {
-    return this.http.get<any[]>(this.URL);
+    return of(this.ciudades); // Devuelve las ciudades simuladas
   }
 
+  // Simula la obtención de una ciudad por ID
   fetchCiudadById(id: string): Observable<any> {
-    return this.http.get<any>(`${this.URL}${id}`); // Obtener un solo usuario por ID
+    const ciudad = this.ciudades.find(city => city.id === id);
+    return of(ciudad); // Devuelve la ciudad encontrada
   }
 
-  postCiudad(user: any): Observable<any> {
-    return this.http.post<any>(this.URL, user); // Especifica el tipo de retorno
+  // Simula el envío de una nueva ciudad
+  postCiudad(ciudad: any): Observable<any> {
+    this.ciudades.push(ciudad); // Agrega la nueva ciudad
+    return of(ciudad); // Devuelve la ciudad agregada
   }
 
-
-  /*updateUser(id_original: string, usuario: any) {
-    return this.http.put(`${this.URL}${id_original}`, usuario);
-  }*/
-
-  updateCiudad(id_original: string, ciudad: any) {
-    console.log('Datos a enviar para actualización:', ciudad);
-    return this.http.put(`${this.URL}${id_original}`, ciudad);
+  // Simula la actualización de una ciudad
+  updateCiudad(id_original: string, ciudad: any): Observable<any> {
+    const index = this.ciudades.findIndex(city => city.id === id_original);
+    if (index !== -1) {
+      this.ciudades[index] = { ...this.ciudades[index], ...ciudad }; // Actualiza la ciudad
+    }
+    return of(this.ciudades[index]); // Devuelve la ciudad actualizada
   }
 
+  // Simula la eliminación de una ciudad
   deleteCiudad(id_ciudad: string): Observable<any> {
-    return this.http.delete<any>(`${this.URL}${id_ciudad}`); // Especifica el tipo de retorno
+    const index = this.ciudades.findIndex(city => city.id === id_ciudad);
+    if (index !== -1) {
+      this.ciudades.splice(index, 1); // Elimina la ciudad
+    }
+    return of({ message: 'Ciudad eliminada' }); // Mensaje de éxito
   }
 }

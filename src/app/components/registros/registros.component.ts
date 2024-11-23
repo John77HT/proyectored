@@ -1,55 +1,37 @@
-// registros.component.ts
 import { Component, OnInit } from '@angular/core';
-import { UsuarioService } from '../../services/usuario.service';
-import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-registros',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
   templateUrl: './registros.component.html',
   styleUrls: ['./registros.component.css']
 })
 export class RegistrosComponent implements OnInit {
-  usuarios: any[] = []; // Lista de usuarios
+  // La lista de usuarios está definida estáticamente
+  usuarios = [
+    { id_usuario: '1', nombre: 'Juan', apellido: 'Pérez', email: 'juan@example.com', telefono: '123456789' },
+    { id_usuario: '2', nombre: 'Ana', apellido: 'González', email: 'ana@example.com', telefono: '987654321' },
+    { id_usuario: '3', nombre: 'Luis', apellido: 'Martínez', email: 'luis@example.com', telefono: '123123123' }
+  ];
 
-  constructor(private usuarioService: UsuarioService, private router: Router) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.obtenerUsuarios(); // Cargar usuarios al iniciar el componente
+    // No es necesario cargar usuarios desde un servicio
   }
 
-  obtenerUsuarios() {
-    this.usuarioService.fetchUser().subscribe(
-      (res: any[]) => {
-        this.usuarios = res;
-      },
-      (err) => {
-        console.error('Error al obtener usuarios:', err);
-      }
-    );
-  }
-
+  // Las siguientes funciones ya no están siendo utilizadas porque no realizan acciones
   editarUsuario(id_usuario: string) {
-    this.router.navigate(['/editar-usuario', id_usuario]); // Redirige a la ruta con el id_usuario
+    // Esta función ya no hace nada
+    console.log(`Intento de editar usuario con ID: ${id_usuario}`);
   }
 
   eliminarUsuario(id_usuario: string) {
-    console.log(`Eliminando usuario con ID: ${id_usuario}`);
-    this.usuarioService.deleteUser(id_usuario).subscribe(
-      (res) => {
-        console.log('Usuario eliminado:', res);
-        this.obtenerUsuarios(); // Actualiza la lista después de eliminar
-      },
-      (err) => {
-        console.error('Error al eliminar el usuario:', err);
-      }
-    );
+    // Esta función ya no hace nada
+    console.log(`Intento de eliminar usuario con ID: ${id_usuario}`);
   }
 
   irANuevoUsuario() {
-    this.router.navigate(['/nuevousuario']);
+    // Esta función ya no hace nada
+    console.log('Intento de crear un nuevo usuario');
   }
 }

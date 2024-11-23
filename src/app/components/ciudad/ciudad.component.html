@@ -1,9 +1,9 @@
-<h2>Ciudades</h2>
-<button class="btn-nuevo-registro" (click)="irANuevaCiudad()">
-    <i class="fas fa-city"></i> Crear nueva Ciudad
+<h2>Lista de Ciudades</h2>
+<button class="btn-nuevo-registro">
+    <i class="fas fa-plus"></i> Crear nueva Ciudad
 </button>
 
-<div class="table-container">
+<div class="tabla-container">
     <table>
         <thead>
             <tr>
@@ -13,14 +13,39 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let ciudad of ciudad">
-                <td>{{ ciudad.id_ciudad }}</td>
-                <td>{{ ciudad.nombre }}</td>
+            <!-- Tabla con los datos estáticos de las ciudades -->
+            <tr>
+                <td>1</td>
+                <td>Madrid</td>
                 <td>
-                    <button (click)="editarCiudad(ciudad.id_ciudad)">
+                    <button>
                         <i class="fas fa-edit"></i> Editar
                     </button>
-                    <button (click)="eliminarCiudad(ciudad.id_ciudad)">
+                    <button>
+                        <i class="fas fa-trash"></i> Eliminar
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Barcelona</td>
+                <td>
+                    <button>
+                        <i class="fas fa-edit"></i> Editar
+                    </button>
+                    <button>
+                        <i class="fas fa-trash"></i> Eliminar
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Sevilla</td>
+                <td>
+                    <button>
+                        <i class="fas fa-edit"></i> Editar
+                    </button>
+                    <button>
                         <i class="fas fa-trash"></i> Eliminar
                     </button>
                 </td>

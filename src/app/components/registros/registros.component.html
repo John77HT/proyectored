@@ -1,5 +1,5 @@
 <h2>Lista de Usuarios</h2>
-<button class="btn-nuevo-registro" (click)="irANuevoUsuario()">
+<button class="btn-nuevo-registro">
     <i class="fas fa-plus"></i> Crear nuevo registro
 </button>
 
@@ -16,17 +16,48 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let usuario of usuarios">
-                <td>{{ usuario.id_usuario }}</td>
-                <td>{{ usuario.nombre }}</td>
-                <td>{{ usuario.apellido }}</td>
-                <td>{{ usuario.email }}</td>
-                <td>{{ usuario.telefono }}</td>
+            <!-- Tabla con los datos estáticos de los usuarios -->
+            <tr>
+                <td>1</td>
+                <td>Juan</td>
+                <td>Pérez</td>
+                <td>juancexample.com</td>
+                <td>123456789</td>
                 <td>
-                    <button (click)="editarUsuario(usuario.id_usuario)">
+                    <button>
                         <i class="fas fa-edit"></i> Editar
                     </button>
-                    <button (click)="eliminarUsuario(usuario.id_usuario)">
+                    <button>
+                        <i class="fas fa-trash"></i> Eliminar
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Ana</td>
+                <td>González</td>
+                <td>anaexample.com</td>
+                <td>987654321</td>
+                <td>
+                    <button>
+                        <i class="fas fa-edit"></i> Editar
+                    </button>
+                    <button>
+                        <i class="fas fa-trash"></i> Eliminar
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Luis</td>
+                <td>Martínez</td>
+                <td>luisexample.com</td>
+                <td>123123123</td>
+                <td>
+                    <button>
+                        <i class="fas fa-edit"></i> Editar
+                    </button>
+                    <button>
                         <i class="fas fa-trash"></i> Eliminar
                     </button>
                 </td>
